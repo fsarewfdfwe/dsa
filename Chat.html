@@ -1,0 +1,34 @@
+<html>
+<head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <canvas id="myChart"></canvas>
+
+    <script>
+var ctx = document.getElementById('myChart').getContext('2d'); 
+var chart = new Chart(ctx, { 
+  // 챠트 종류를 선택 
+  type: 'bar',
+  // 챠트를 그릴 데이타 
+  data: { 
+    labels: ['SERVER'], 
+    datasets: [{ 
+      label: '봇 현황', 
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'red', 
+      data: [10],
+      borderWidth: 0.1
+    }] }, 
+      // 옵션 
+      options: {}, 
+      legend: {
+        display: false
+      }
+    });
+    </script>
+</body>
+</html>
