@@ -17,7 +17,32 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="864060980376-6g1lu17eak9m5nlgbfhmb9kkvdmi138c.apps.googleusercontent.com">
 </head>
+<html lang="en">
+  <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="864060980376-6g1lu17eak9m5nlgbfhmb9kkvdmi138c.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </head>
+  <body>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
 
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      }
+    </script>
+  </body>
+</html>
 <body style="background-color: var(--background);">
     <div id="top" style="height: 12px;">
         <nav class="navbar navbar-light navbar-expand fixed-top" style="color: var(--main-color);border-top-width: 6px;border-top-style: solid;background: var(--background);">
@@ -28,16 +53,7 @@
                         <li class="nav-item"><a class="nav-link active smoothScroll" href="#feature"style="margin: 5px;background-color: var(--main-color);border-color: var(--main-color);border-radius: 10px;">봇 정보</a></li>
                         <li class="nav-item"><a class="nav-link smoothScroll" href="#commands" style="margin: 5px;background-color: var(--main-color);border-color: var(--main-color);border-radius: 10px;">명령어</a></li>
                         <li class="nav-item"><a class="nav-link" href="https://discord.com/api/oauth2/authorize?client_id=836585101390381096&permissions=8&scope=bot"target="_blank" style="margin: 5px;background-color: var(--main-color);border-color: var(--main-color);border-radius: 10px;">봇 초대</a>
-                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-<a href="#" onclick="signOut();">Sign out</a>
-<script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-</script>
+                    
 		</ul>
 
             </div>
